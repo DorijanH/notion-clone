@@ -1,4 +1,5 @@
 import './globals.css';
+import { Toaster } from 'sonner';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             enableSystem
             storageKey="jotion-theme"
           >
+            <Toaster position="bottom-center" />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
