@@ -7,6 +7,8 @@ import { ChevronsLeft, MenuIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
+import UserItem from './user-item';
+
 export default function Navigation() {
   const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -24,6 +26,7 @@ export default function Navigation() {
     } else {
       handleResetWidth();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   useEffect(() => {
@@ -111,7 +114,7 @@ export default function Navigation() {
         </div>
 
         <div>
-          <p>Action items</p>
+          <UserItem />
         </div>
 
         <div>
