@@ -8,6 +8,8 @@ import { Id } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 
 import Title from './title';
+import Menu from './menu';
+import Banner from './banner';
 
 type NavbarProps = {
   isCollapsed: boolean;
@@ -26,8 +28,11 @@ export default function Navbar(props: NavbarProps) {
   // Loading state
   if (document === undefined) {
     return (
-      <nav className="flex w-full items-center bg-background px-3 py-2 dark:bg-[#1F1F1F]">
+      <nav className="flex w-full items-center justify-between bg-background px-3 py-2 dark:bg-[#1F1F1F]">
         <Title.Skeleton />
+        <div className="flex items-center gap-x-2">
+          <Menu.Skeleton />
+        </div>
       </nav>
     );
   }
@@ -50,8 +55,16 @@ export default function Navbar(props: NavbarProps) {
 
         <div className="flex w-full items-center justify-between">
           <Title initialData={document} />
+
+          <div className="flex items-center gap-x-2">
+            <Menu documentId={document._id} />
+          </div>
         </div>
       </nav>
+
+      {document.isArchived && (
+        <Banner documentId={document._id} />
+      )}
     </>
   );
 }
