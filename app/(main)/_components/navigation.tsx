@@ -5,18 +5,18 @@ import { toast } from 'sonner';
 import { ElementRef, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-react';
-import { useMutation, useQuery } from 'convex/react';
+import { useMutation } from 'convex/react';
 
 import { cn } from '@/lib/utils';
 import { api } from '@/convex/_generated/api';
 
 import UserItem from './user-item';
 import Item from './item';
+import DocumentList from './document-list';
 
 export default function Navigation() {
   const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -149,12 +149,8 @@ export default function Navigation() {
           />
         </div>
 
-        <div>
-          {documents?.map((document) => (
-            <p key={document._id}>
-              {document.title}
-            </p>
-          ))}
+        <div className="mt-4">
+          <DocumentList />
         </div>
 
         <div
