@@ -7,7 +7,7 @@ import { File } from 'lucide-react';
 import { useQuery } from 'convex/react';
 import { useUser } from '@clerk/clerk-react';
 
-import { useSearch } from '@/hooks/use-search';
+import useSearch from '@/hooks/use-search';
 import { api } from '@/convex/_generated/api';
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';

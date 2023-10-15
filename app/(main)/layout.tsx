@@ -17,11 +17,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <Spinner size="lg" />
       </div>
     );
-  }
+  };
 
   if (!isAuthenticated) {
     return redirect('/');
-  }
+  };
 
   return (
     <div className="flex min-h-full dark:bg-[#1F1F1F]">

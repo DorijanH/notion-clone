@@ -8,7 +8,8 @@ import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } fro
 import { useMutation } from 'convex/react';
 
 import { cn } from '@/lib/utils';
-import { useSearch } from '@/hooks/use-search';
+import useSettings from '@/hooks/use-settings';
+import useSearch from '@/hooks/use-search';
 import { api } from '@/convex/_generated/api';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
@@ -18,10 +19,11 @@ import Item from './item';
 import DocumentList from './document-list';
 
 export default function Navigation() {
+  const { toggle: toggleSearch } = useSearch();
+  const { onOpen: handleOpenSettings } = useSettings();
   const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const create = useMutation(api.documents.create);
-  const { toggle: toggleSearch } = useSearch();
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<'aside'>>(null);
@@ -144,7 +146,7 @@ export default function Navigation() {
           <Item
             label="Settings"
             icon={Settings}
-            onClick={() => {}}
+            onClick={handleOpenSettings}
           />
           <Item
             onClick={handleCreate}
