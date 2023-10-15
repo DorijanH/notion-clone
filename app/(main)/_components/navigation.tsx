@@ -4,7 +4,7 @@ import { useMediaQuery } from 'usehooks-ts';
 import { toast } from 'sonner';
 import { ElementRef, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-react';
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings } from 'lucide-react';
 import { useMutation } from 'convex/react';
 
 import { cn } from '@/lib/utils';
@@ -151,6 +151,11 @@ export default function Navigation() {
 
         <div className="mt-4">
           <DocumentList />
+          <Item
+            onClick={handleCreate}
+            icon={Plus}
+            label="Add a page"
+          />
         </div>
 
         <div
