@@ -3,7 +3,7 @@
 import { useMediaQuery } from 'usehooks-ts';
 import { toast } from 'sonner';
 import { ElementRef, useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from 'lucide-react';
 import { useMutation } from 'convex/react';
 
@@ -15,6 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 import UserItem from './user-item';
 import TrashBox from './trash-box';
+import Navbar from './navbar';
 import Item from './item';
 import DocumentList from './document-list';
 
@@ -22,6 +23,7 @@ export default function Navigation() {
   const { toggle: toggleSearch } = useSearch();
   const { onOpen: handleOpenSettings } = useSettings();
   const pathname = usePathname();
+  const params = useParams();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const create = useMutation(api.documents.create);
 
@@ -194,15 +196,22 @@ export default function Navigation() {
           isMobile && 'left-0 w-full'
         )}
       >
-        <nav className="w-full bg-transparent px-3 py-2">
-          {isCollapsed && (
-            <MenuIcon
-              role="button"
-              onClick={handleResetWidth}
-              className="h-6 w-6 text-muted-foreground"
-            />
-          )}
-        </nav>
+        {!!params.documentId ? (
+          <Navbar
+            isCollapsed={isCollapsed}
+            handleResetWidth={handleResetWidth}
+          />
+        ) : (
+          <nav className="w-full bg-transparent px-3 py-2">
+            {isCollapsed && (
+              <MenuIcon
+                role="button"
+                onClick={handleResetWidth}
+                className="h-6 w-6 text-muted-foreground"
+              />
+            )}
+          </nav>
+        )}
       </div>
     </>
   );
