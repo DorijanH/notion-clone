@@ -6,10 +6,12 @@ import { ImageIcon, X } from 'lucide-react';
 import { useMutation } from 'convex/react';
 
 import { cn } from '@/lib/utils';
+import { useEdgeStore } from '@/lib/edgestore';
 import useCoverImage from '@/hooks/use-cover-image';
 import { Id } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 
+import { Skeleton } from './ui/skeleton';
 import { Button } from './ui/button';
 
 type CoverProps = {
@@ -25,9 +27,14 @@ export default function Cover(props: CoverProps) {
 
   const params = useParams();
   const removeCover = useMutation(api.documents.removeCover);
-  const { onOpen: onOpenCoverImageModal } = useCoverImage();
+  const { edgestore } = useEdgeStore();
+  const { onReplace: onCoverImageReplace } = useCoverImage();
 
-  const handleRemoveCover = () => {
+  const handleRemoveCover = async () => {
+    if (url) {
+      await edgestore.publicFiles.delete({ url })
+    }
+
     removeCover({
       id: params.documentId as Id<'documents'>
     });
@@ -53,7 +60,7 @@ export default function Cover(props: CoverProps) {
           <Button
             size="sm"
             variant="outline"
-            onClick={onOpenCoverImageModal}
+            onClick={() => onCoverImageReplace(url)}
             className="text-xs text-muted-foreground"
           >
             <ImageIcon className="mr-2 h-4 w-4" />
@@ -72,4 +79,10 @@ export default function Cover(props: CoverProps) {
       )}
     </div>
   )
+}
+
+Cover.Skeleton = function CoverSkeleton() {
+  return (
+    <Skeleton className="h-[12vh] w-full" />
+  );
 }

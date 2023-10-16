@@ -16,6 +16,7 @@ export default function CoverImageModal() {
   const params = useParams();
   const update = useMutation(api.documents.update);
   const {
+    url: coverImageUrl,
     isOpen: isCoverImageModalOpen,
     onClose: onCloseCoverImageModal
   } = useCoverImage();
@@ -29,7 +30,12 @@ export default function CoverImageModal() {
       setIsSubmitting(true);
       setFile(file);
 
-      const response = await edgestore.publicFiles.upload({ file });
+      const response = await edgestore.publicFiles.upload({
+        file,
+        options: {
+          replaceTargetUrl: coverImageUrl
+        }
+      });
 
       await update({
         id: params.documentId as Id<'documents'>,
