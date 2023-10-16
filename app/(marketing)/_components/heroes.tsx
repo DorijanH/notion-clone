@@ -6,31 +6,35 @@ export default function Heroes() {
       <div className="flex items-center">
         <div className="relative h-[300px] w-[300px] sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]">
           <Image
-            src="/documents.png"
             fill
-            className="object-contain dark:hidden"
+            priority
             alt="Documents"
+            src="/documents.png"
+            className="object-contain dark:hidden"
           />
           <Image
-            src="/documents-dark.png"
             fill
-            className="hidden object-contain dark:block"
+            priority
             alt="Documents"
+            src="/documents-dark.png"
+            className="hidden object-contain dark:block"
           />
         </div>
 
         <div className="relative hidden h-[400px] w-[400px] md:block">
           <Image
-            src="/reading.png"
             fill
-            className="object-contain dark:hidden"
+            priority
             alt="Reading"
+            src="/reading.png"
+            className="object-contain dark:hidden"
           />
           <Image
-            src="/reading-dark.png"
             fill
-            className="hidden object-contain dark:block"
+            priority
             alt="Reading"
+            src="/reading-dark.png"
+            className="hidden object-contain dark:block"
           />
         </div>
       </div>
