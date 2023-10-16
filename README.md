@@ -1,16 +1,14 @@
 <h1 align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="public/icons/logo.svg">
-    <img width="128" height="128" alt="logo" src="public/icons/logo-dark.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="public/icons/logo-dark.svg">
+    <img width="128" height="128" alt="logo" src="public/icons/logo.svg">
   </picture>
 
-  <p>Jotion</p>
-
-  <p style="font-size: 18px">Notion clone</p>
+  <p>Jotion</h1>
 </h1>
 
 <div align="center">
-  <p>Fullstack Notion clone made by following the <a href="https://github.com/AntonioErdeljac/notion-clone-tutorial" target="_blank">tutorial</a>.</p>
+  <p>Fullstack <a href="https://www.notion.so/" target="_blank">Notion</a> clone made by following the <a href="https://github.com/AntonioErdeljac/notion-clone-tutorial" target="_blank">tutorial</a>.</p>
 
   <div>
     <a href="https://www.typescriptlang.org/" target="_blank">
@@ -30,11 +28,13 @@
 
 <br />
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/home-page-light.png">
-  <img alt="logo" src="docs/home-page-dark.png">
-<picture>
-
+<div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/home-page-dark.png">
+    <img alt="logo" src="docs/home-page-light.png">
+  <picture>
+</div>
+  
 ## 🛠 Prerequisites
 + [Node](https://nodejs.org/en) version >= 18.x
 + [pnpm](https://pnpm.io/) package manager
