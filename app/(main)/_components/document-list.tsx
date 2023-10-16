@@ -6,7 +6,7 @@ import { FileIcon } from 'lucide-react';
 import { useQuery } from 'convex/react';
 
 import { cn } from '@/lib/utils';
-import { Doc, Id } from '@/convex/_generated/dataModel';
+import { Id } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 
 import Item from './item';
@@ -14,7 +14,6 @@ import Item from './item';
 type DocumentListProps = {
   parentDocumentId?: Id<'documents'>;
   level?: number;
-  data?: Doc<'documents'>[];
 }
 
 export default function DocumentList(props: DocumentListProps) {
