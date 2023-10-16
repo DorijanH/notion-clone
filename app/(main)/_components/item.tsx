@@ -111,7 +111,7 @@ export default function Item(props: ItemProps) {
           {documentIcon}
         </div>
       ) : (
-        <Icon className="mr-2 h-[18px] shrink-0 text-muted-foreground" />
+        <Icon className="mr-2 h-[18px] w-[18px] shrink-0 text-muted-foreground" />
       )}
 
       <span className="truncate">
