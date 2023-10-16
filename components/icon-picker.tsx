@@ -11,6 +11,11 @@ type IconPickerProps = {
   asChild?: boolean;
 };
 
+/**
+ * Function representing the IconPicker component.
+ *
+ * @returns IconPicker component
+ */
 export default function IconPicker(props: IconPickerProps) {
   const {
     children,

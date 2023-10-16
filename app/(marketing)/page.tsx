@@ -2,6 +2,11 @@ import Heroes from './_components/heroes';
 import Heading from './_components/heading';
 import Footer from './_components/footer';
 
+/**
+ * Function representing the MarketingPage component.
+ *
+ * @returns MarketingPage component
+ */
 export default function MarketingPage() {
   return (
     <div className="flex min-h-full flex-col dark:bg-[#1F1F1F]">

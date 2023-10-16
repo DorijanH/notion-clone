@@ -8,6 +8,11 @@ const poppins = Poppins({
   weight: ['400', '600']
 });
 
+/**
+ * Function representing the Logo component.
+ *
+ * @returns Logo component
+ */
 export default function Logo() {
   return (
     <div className="hidden items-center gap-x-2 md:flex">

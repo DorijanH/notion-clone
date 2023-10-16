@@ -8,6 +8,11 @@ import { SignInButton } from '@clerk/clerk-react';
 import { Button } from '@/components/ui/button';
 import Spinner from '@/components/spinner';
 
+/**
+ * Function representing the Heading component.
+ *
+ * @returns Heading component
+ */
 export default function Heading() {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
@@ -26,6 +31,7 @@ export default function Heading() {
           <Spinner size="lg" />
         </div>
       )}
+
       {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
@@ -34,6 +40,7 @@ export default function Heading() {
           </Button>
         </SignInButton>
       )}
+
       {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">

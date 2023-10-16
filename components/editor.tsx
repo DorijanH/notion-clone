@@ -13,6 +13,11 @@ type EditorProps = {
   editable?: boolean;
 }
 
+/**
+ * Function representing the Editor component.
+ *
+ * @returns Editor component
+ */
 export default function Editor(props: EditorProps) {
   const {
     onChange,

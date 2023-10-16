@@ -16,6 +16,11 @@ type DocumentIdPageProps = {
   };
 };
 
+/**
+ * Function representing the DocumentIdPage component.
+ *
+ * @returns DocumentIdPage component
+ */
 export default function DocumentIdPage({ params: { documentId } }: DocumentIdPageProps) {
   const Editor = useMemo(() => dynamic(() => import('@/components/editor'), { ssr: false }), []);
 

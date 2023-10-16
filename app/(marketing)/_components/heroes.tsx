@@ -1,5 +1,10 @@
 import Image from 'next/image';
 
+/**
+ * Function representing the Heroes component.
+ *
+ * @returns Heroes component
+ */
 export default function Heroes() {
   return (
     <div className="flex max-w-5xl flex-col items-center justify-center">

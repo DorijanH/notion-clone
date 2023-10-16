@@ -16,6 +16,11 @@ type PreviewDocumentIdPage = {
   }
 };
 
+/**
+ * Function representing the PreviewDocumentIdPage component.
+ *
+ * @returns PreviewDocumentIdPage component
+ */
 export default function PreviewDocumentIdPage({ params: { documentId } }: PreviewDocumentIdPage) {
   const Editor = useMemo(() => dynamic(() => import('@/components/editor'), { ssr: false }), []);
 
@@ -61,11 +66,13 @@ export default function PreviewDocumentIdPage({ params: { documentId } }: Previe
         preview
         url={document.coverImage}
       />
+
       <div className="mx-auto md:max-w-3xl lg:max-w-4xl">
         <Toolbar
           preview
           initialData={document}
         />
+
         <Editor
           editable={false}
           onChange={handleChange}

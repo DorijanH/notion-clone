@@ -6,6 +6,11 @@ import ModeToggle from '@/components/mode-toggle';
 import { Label } from '../ui/label';
 import { Dialog, DialogContent, DialogHeader } from '../ui/dialog';
 
+/**
+ * Function representing the SettingsModal component.
+ *
+ * @returns SettingsModal component
+ */
 export default function SettingsModal() {
   const { isOpen, onClose } = useSettings();
 

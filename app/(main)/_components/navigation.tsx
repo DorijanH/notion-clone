@@ -19,6 +19,11 @@ import Navbar from './navbar';
 import Item from './item';
 import DocumentList from './document-list';
 
+/**
+ * Function representing the Navigation component.
+ *
+ * @returns Navigation component
+ */
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();

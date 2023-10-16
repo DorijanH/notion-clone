@@ -19,6 +19,11 @@ type CoverProps = {
   preview?: boolean;
 }
 
+/**
+ * Function representing the Cover component.
+ *
+ * @returns Cover component
+ */
 export default function Cover(props: CoverProps) {
   const {
     preview,
@@ -81,6 +86,11 @@ export default function Cover(props: CoverProps) {
   )
 }
 
+/**
+ * Function representing the CoverSkeleton component.
+ *
+ * @returns CoverSkeleton component
+ */
 Cover.Skeleton = function CoverSkeleton() {
   return (
     <Skeleton className="h-[12vh] w-full" />

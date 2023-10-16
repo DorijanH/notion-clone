@@ -13,6 +13,11 @@ type TitleProps = {
   initialData: Doc<'documents'>;
 }
 
+/**
+ * Function representing the Title component.
+ *
+ * @returns Title component
+ */
 export default function Title({ initialData }: TitleProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const update = useMutation(api.documents.update);
@@ -77,6 +82,11 @@ export default function Title({ initialData }: TitleProps) {
   );
 }
 
+/**
+ * Function representing the TitleSkeleton component.
+ *
+ * @returns TitleSkeleton component
+ */
 Title.Skeleton = function TitleSkeleton() {
   return (
     <Skeleton className="h-4 w-[200px] rounded-md" />

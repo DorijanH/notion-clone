@@ -22,6 +22,11 @@ const spinnerVariants = cva(
 
 type SpinnerProps = VariantProps<typeof spinnerVariants>;
 
+/**
+ * Function representing the Spinner component.
+ *
+ * @returns Spinner component
+ */
 export default function Spinner({ size }: SpinnerProps) {
   return <Loader className={cn(spinnerVariants({ size }))} />;
 }

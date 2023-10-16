@@ -2,6 +2,11 @@ import { Button } from '@/components/ui/button';
 
 import Logo from './logo';
 
+/**
+ * Function representing the Footer component.
+ *
+ * @returns Footer component
+ */
 export default function Footer() {
   return (
     <div className="z-50 flex w-full items-center bg-background p-6 dark:bg-[#1F1F1F]">
@@ -11,6 +16,7 @@ export default function Footer() {
         <Button variant="ghost" size="sm">
           Privacy Policy
         </Button>
+
         <Button variant="ghost" size="sm">
           Terms & Conditions
         </Button>

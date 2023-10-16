@@ -27,9 +27,18 @@ export const metadata: Metadata = {
       }
     ]
   }
-}
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type RootLayoutProps = {
+  children: React.ReactNode;
+};
+
+/**
+ * Function representing the RootLayout component.
+ *
+ * @returns RootLayout component
+ */
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
@@ -43,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
               <Toaster position="bottom-center" />
               <ModalProvider />
+
               {children}
             </ThemeProvider>
           </EdgeStoreProvider>

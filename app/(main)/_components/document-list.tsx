@@ -16,6 +16,11 @@ type DocumentListProps = {
   level?: number;
 }
 
+/**
+ * Function representing the DocumentList component.
+ *
+ * @returns DocumentList component
+ */
 export default function DocumentList(props: DocumentListProps) {
   const {
     parentDocumentId,

@@ -5,6 +5,11 @@ import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 
+/**
+ * Function representing the Error component.
+ *
+ * @returns Error component
+ */
 export default function Error() {
   return (
     <div className="flex min-h-full flex-col items-center justify-center gap-y-4">

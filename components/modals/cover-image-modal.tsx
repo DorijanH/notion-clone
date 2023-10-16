@@ -12,6 +12,11 @@ import { api } from '@/convex/_generated/api';
 import { Dialog, DialogContent, DialogHeader } from '../ui/dialog';
 import { SingleImageDropzone } from '../single-image-dropzone';
 
+/**
+ * Function representing the CoverImageModal component.
+ *
+ * @returns CoverImageModal component
+ */
 export default function CoverImageModal() {
   const params = useParams();
   const update = useMutation(api.documents.update);

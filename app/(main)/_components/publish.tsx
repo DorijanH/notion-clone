@@ -15,6 +15,11 @@ type PublishProps = {
   initialData: Doc<'documents'>
 };
 
+/**
+ * Function representing the Publish component.
+ *
+ * @returns Publish component
+ */
 export default function Publish({ initialData }: PublishProps) {
   const origin = useOrigin();
   const update = useMutation(api.documents.update);

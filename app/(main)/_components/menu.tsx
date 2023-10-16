@@ -22,6 +22,11 @@ type MenuProps = {
   documentId: Id<'documents'>
 };
 
+/**
+ * Function representing the Menu component.
+ *
+ * @returns Menu component
+ */
 export default function Menu({ documentId }: MenuProps) {
   const router = useRouter();
   const { user } = useUser();
@@ -71,6 +76,11 @@ export default function Menu({ documentId }: MenuProps) {
   );
 }
 
+/**
+ * Function representing the MenuSkeleton component.
+ *
+ * @returns MenuSkeleton component
+ */
 Menu.Skeleton = function MenuSkeleton() {
   return (
     <Skeleton className="h-10 w-10" />

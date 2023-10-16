@@ -6,6 +6,11 @@ import { SignOutButton, useUser } from '@clerk/clerk-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 
+/**
+ * Function representing the UserItem component.
+ *
+ * @returns UserItem component
+ */
 export default function UserItem() {
   const { user } = useUser();
 

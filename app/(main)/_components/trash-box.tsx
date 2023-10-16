@@ -12,6 +12,11 @@ import { Input } from '@/components/ui/input';
 import Spinner from '@/components/spinner';
 import ConfirmModal from '@/components/modals/confirm-modal';
 
+/**
+ * Function representing the TrashBox component.
+ *
+ * @returns TrashBox component
+ */
 export default function TrashBox() {
   const router = useRouter();
   const params = useParams();

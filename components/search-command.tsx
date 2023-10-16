@@ -12,6 +12,11 @@ import { api } from '@/convex/_generated/api';
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';
 
+/**
+ * Function representing the SearchCommand component.
+ *
+ * @returns SearchCommand component
+ */
 export default function SearchCommand() {
   const router = useRouter();
   const isMounted = useIsMounted();

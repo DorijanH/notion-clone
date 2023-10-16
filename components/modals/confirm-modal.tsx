@@ -9,6 +9,11 @@ type ConfirmModalProps = {
   onConfirm: () => void;
 }
 
+/**
+ * Function representing the ConfirmModal component.
+ *
+ * @returns ConfirmModal component
+ */
 export default function ConfirmModal(props: ConfirmModalProps) {
   const {
     children,

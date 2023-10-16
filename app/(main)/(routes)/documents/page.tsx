@@ -10,6 +10,11 @@ import { useUser } from '@clerk/clerk-react';
 import { api } from '@/convex/_generated/api';
 import { Button } from '@/components/ui/button';
 
+/**
+ * Function representing the DocumentsPage component.
+ *
+ * @returns DocumentsPage component
+ */
 export default function DocumentsPage() {
   const router = useRouter();
   const { user } = useUser();

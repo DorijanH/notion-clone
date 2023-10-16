@@ -13,6 +13,11 @@ type BannerProps = {
   documentId: Id<'documents'>
 };
 
+/**
+ * Function representing the Banner component.
+ *
+ * @returns Banner component
+ */
 export default function Banner({ documentId }: BannerProps) {
   const router = useRouter();
 

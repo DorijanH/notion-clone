@@ -12,6 +12,11 @@ import ModeToggle from '@/components/mode-toggle';
 
 import Logo from './logo';
 
+/**
+ * Function representing the Navbar component.
+ *
+ * @returns Navbar component
+ */
 export default function Navbar() {
   const { isAuthenticated, isLoading } = useConvexAuth();
   const scrolled = useScrollTop();
@@ -25,6 +30,7 @@ export default function Navbar() {
 
       <div className="flex w-full items-center justify-between gap-x-2 md:ml-auto md:justify-end">
         {isLoading && <Spinner />}
+
         {!isAuthenticated && !isLoading && (
           <>
             <SignInButton mode="modal">
@@ -39,6 +45,7 @@ export default function Navbar() {
             </SignInButton>
           </>
         )}
+
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>

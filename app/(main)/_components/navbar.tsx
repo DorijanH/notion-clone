@@ -1,6 +1,6 @@
 'use client';
 
-import { notFound, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { MenuIcon } from 'lucide-react';
 import { useQuery } from 'convex/react';
 

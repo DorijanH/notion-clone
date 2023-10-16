@@ -24,6 +24,11 @@ type ItemProps = {
   icon: LucideIcon;
 };
 
+/**
+ * Function representing the Item component.
+ *
+ * @returns Item component
+ */
 export default function Item(props: ItemProps) {
   const {
     id,
@@ -170,7 +175,16 @@ export default function Item(props: ItemProps) {
   );
 }
 
-Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
+type ItemSkeletonProps = {
+  level?: number;
+}
+
+/**
+ * Function representing the ItemSkeleton component.
+ *
+ * @returns ItemSkeleton component
+ */
+Item.Skeleton = function ItemSkeleton({ level }: ItemSkeletonProps) {
   return (
     <div
       style={{ paddingLeft: level ? `${(level * 12) + 25}px` : '12px' }}

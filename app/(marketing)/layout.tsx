@@ -1,6 +1,15 @@
 import Navbar from './_components/navbar';
 
-export default function MarketingLayout({ children }: { children: React.ReactNode }) {
+type MarketingLayoutProps = {
+  children: React.ReactNode;
+}
+
+/**
+ * Function representing the MarketingLayout component.
+ *
+ * @returns MarketingLayout component
+ */
+export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="h-full dark:bg-[#1F1F1F]">
       <Navbar />

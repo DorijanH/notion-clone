@@ -17,6 +17,11 @@ type ToolbarProps = {
   preview?: boolean;
 }
 
+/**
+ * Function representing the Toolbar component.
+ *
+ * @returns Toolbar component
+ */
 export default function Toolbar(props: ToolbarProps) {
   const {
     initialData,
