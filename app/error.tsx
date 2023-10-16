@@ -9,6 +9,7 @@ export default function Error() {
   return (
     <div className="flex min-h-full flex-col items-center justify-center gap-y-4">
       <Image
+        priority
         src="/error.png"
         height={300}
         width={300}
@@ -16,6 +17,7 @@ export default function Error() {
         className="dark:hidden"
       />
       <Image
+        priority
         src="/error-dark.png"
         height={300}
         width={300}
