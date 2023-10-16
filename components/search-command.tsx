@@ -58,7 +58,7 @@ export default function SearchCommand() {
               key={document._id}
               value={`${document._id}-${document.title}`}
               title={document.title}
-              onSelect={handleSelect}
+              onSelect={() => handleSelect(document._id)}
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">
