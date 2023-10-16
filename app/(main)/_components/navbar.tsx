@@ -8,6 +8,7 @@ import { Id } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 
 import Title from './title';
+import Publish from './publish';
 import Menu from './menu';
 import Banner from './banner';
 
@@ -57,6 +58,7 @@ export default function Navbar(props: NavbarProps) {
           <Title initialData={document} />
 
           <div className="flex items-center gap-x-2">
+            <Publish initialData={document} />
             <Menu documentId={document._id} />
           </div>
         </div>

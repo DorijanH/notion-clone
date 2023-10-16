@@ -23,7 +23,7 @@ export default function Editor(props: EditorProps) {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
 
-  const handleupload = async (file: File) => {
+  const handleUpload = async (file: File) => {
     const response = await edgestore.publicFiles.upload({ file });
 
     return response.url;
@@ -35,7 +35,7 @@ export default function Editor(props: EditorProps) {
     onEditorContentChange: (editor) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
     },
-    uploadFile: handleupload
+    uploadFile: !!editable ? handleUpload : undefined
   });
 
   return (
