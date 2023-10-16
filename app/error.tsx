@@ -10,7 +10,7 @@ export default function Error() {
     <div className="flex min-h-full flex-col items-center justify-center gap-y-4">
       <Image
         priority
-        src="images/error.png"
+        src="/images/error.png"
         height={300}
         width={300}
         alt="Error"
@@ -18,7 +18,7 @@ export default function Error() {
       />
       <Image
         priority
-        src="images/error-dark.png"
+        src="/images/error-dark.png"
         height={300}
         width={300}
         alt="Error"
