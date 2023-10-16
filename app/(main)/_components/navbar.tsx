@@ -17,6 +17,11 @@ type NavbarProps = {
   handleResetWidth: () => void;
 };
 
+/**
+ * Function representing the Navbar component.
+ *
+ * @returns Navbar component
+ */
 export default function Navbar(props: NavbarProps) {
   const {
     isCollapsed,
