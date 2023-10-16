@@ -12,14 +12,14 @@ export default function Logo() {
   return (
     <div className="hidden items-center gap-x-2 md:flex">
       <Image
-        src="/logo.svg"
+        src="/icons/logo.svg"
         height={40}
         width={40}
         alt="Logo"
         className="dark:hidden"
       />
       <Image
-        src="/logo-dark.svg"
+        src="/icons/logo-dark.svg"
         height={40}
         width={40}
         alt="Logo"

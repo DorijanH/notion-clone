@@ -38,8 +38,8 @@ export default function Navbar(props: NavbarProps) {
     );
   }
 
+  // Not found
   if (document === null) {
-    // return notFound();
     return null;
   }
 

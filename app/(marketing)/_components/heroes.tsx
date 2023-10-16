@@ -9,14 +9,14 @@ export default function Heroes() {
             fill
             priority
             alt="Documents"
-            src="/documents.png"
+            src="/images/documents.png"
             className="object-contain dark:hidden"
           />
           <Image
             fill
             priority
             alt="Documents"
-            src="/documents-dark.png"
+            src="/images/documents-dark.png"
             className="hidden object-contain dark:block"
           />
         </div>
@@ -26,14 +26,14 @@ export default function Heroes() {
             fill
             priority
             alt="Reading"
-            src="/reading.png"
+            src="/images/reading.png"
             className="object-contain dark:hidden"
           />
           <Image
             fill
             priority
             alt="Reading"
-            src="/reading-dark.png"
+            src="/images/reading-dark.png"
             className="hidden object-contain dark:block"
           />
         </div>
