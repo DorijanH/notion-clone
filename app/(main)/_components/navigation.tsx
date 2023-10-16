@@ -3,7 +3,7 @@
 import { useMediaQuery } from 'usehooks-ts';
 import { toast } from 'sonner';
 import { ElementRef, useEffect, useRef, useState } from 'react';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from 'lucide-react';
 import { useMutation } from 'convex/react';
 
@@ -20,12 +20,13 @@ import Item from './item';
 import DocumentList from './document-list';
 
 export default function Navigation() {
-  const { toggle: toggleSearch } = useSearch();
-  const { onOpen: handleOpenSettings } = useSettings();
+  const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const create = useMutation(api.documents.create);
+  const { toggle: toggleSearch } = useSearch();
+  const { onOpen: handleOpenSettings } = useSettings();
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<'aside'>>(null);
@@ -106,7 +107,8 @@ export default function Navigation() {
   };
 
   const handleCreate = () => {
-    const promise = create({ title: 'Untitled' });
+    const promise = create({ title: 'Untitled' })
+      .then((documentId) => router.push(`/documents/${documentId}`));
 
     toast.promise(promise, {
       loading: 'Creating a new note...',

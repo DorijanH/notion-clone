@@ -22,13 +22,13 @@ export default function Banner({ documentId }: BannerProps) {
   const handleRemove = () => {
     const promise = remove({ id: documentId });
 
+    router.push('/documents');
+
     toast.promise(promise, {
       loading: 'Deleting note...',
       success: 'Note deleted!',
       error: 'Failed to delete note :('
     });
-
-    router.push('/documents');
   };
 
   const handleRestore = () => {
