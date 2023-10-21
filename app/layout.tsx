@@ -2,6 +2,7 @@ import './globals.css';
 import { Toaster } from 'sonner';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 import { EdgeStoreProvider } from '@/lib/edgestore';
 import ThemeProvider from '@/components/providers/theme-provider';
@@ -50,10 +51,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
               enableSystem
               storageKey="jotion-theme"
             >
-              <Toaster position="bottom-center" />
-              <ModalProvider />
-
               {children}
+
+              <Analytics />
+              <ModalProvider />
+              <Toaster position="bottom-center" />
             </ThemeProvider>
           </EdgeStoreProvider>
         </ConvexClientProvider>

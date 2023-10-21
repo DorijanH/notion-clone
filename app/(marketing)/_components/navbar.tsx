@@ -38,6 +38,7 @@ export default function Navbar() {
                 Log in
               </Button>
             </SignInButton>
+
             <SignInButton mode="modal">
               <Button size="sm">
                 Get Jotion free
