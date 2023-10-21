@@ -4,13 +4,14 @@ import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { useMutation } from 'convex/react';
 
-import { Id } from '@/convex/_generated/dataModel';
+import { useEdgeStore } from '@/lib/edgestore';
+import { Doc } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 import { Button } from '@/components/ui/button';
 import ConfirmModal from '@/components/modals/confirm-modal';
 
 type BannerProps = {
-  documentId: Id<'documents'>
+  document: Doc<'documents'>;
 };
 
 /**
@@ -18,14 +19,19 @@ type BannerProps = {
  *
  * @returns Banner component
  */
-export default function Banner({ documentId }: BannerProps) {
+export default function Banner({ document }: BannerProps) {
   const router = useRouter();
+  const { edgestore } = useEdgeStore();
 
   const remove = useMutation(api.documents.remove);
   const restore = useMutation(api.documents.restore);
 
-  const handleRemove = () => {
-    const promise = remove({ id: documentId });
+  const handleRemove = async () => {
+    if (document.coverImage) {
+      await edgestore.publicFiles.delete({ url: document.coverImage });
+    }
+
+    const promise = remove({ id: document._id });
 
     router.push('/documents');
 
@@ -37,7 +43,7 @@ export default function Banner({ documentId }: BannerProps) {
   };
 
   const handleRestore = () => {
-    const promise = restore({ id: documentId });
+    const promise = restore({ id: document._id });
 
     toast.promise(promise, {
       loading: 'Restoring note...',

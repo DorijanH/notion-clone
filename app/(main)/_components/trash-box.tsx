@@ -6,7 +6,8 @@ import { useParams, useRouter } from 'next/navigation';
 import { Search, Trash, Undo } from 'lucide-react';
 import { useMutation, useQuery } from 'convex/react';
 
-import { Id } from '@/convex/_generated/dataModel';
+import { useEdgeStore } from '@/lib/edgestore';
+import { Doc, Id } from '@/convex/_generated/dataModel';
 import { api } from '@/convex/_generated/api';
 import { Input } from '@/components/ui/input';
 import Spinner from '@/components/spinner';
@@ -20,6 +21,8 @@ import ConfirmModal from '@/components/modals/confirm-modal';
 export default function TrashBox() {
   const router = useRouter();
   const params = useParams();
+  const { edgestore } = useEdgeStore();
+
   const documents = useQuery(api.documents.getTrash);
   const restore = useMutation(api.documents.restore);
   const remove = useMutation(api.documents.remove);
@@ -28,7 +31,7 @@ export default function TrashBox() {
 
   const filteredDocuments = documents?.filter((document) => document.title.toLowerCase().includes(search.toLocaleLowerCase()));
 
-  const handleClick = (documentId: string) => {
+  const handleClick = (documentId: Id<'documents'>) => {
     router.push(`/documents/${documentId}`);
   };
 
@@ -44,8 +47,12 @@ export default function TrashBox() {
     });
   };
 
-  const handleRemove = (documentId: Id<'documents'>) => {
-    const promise = remove({ id: documentId });
+  const handleRemove = async (document: Doc<'documents'>) => {
+    if (document.coverImage) {
+      await edgestore.publicFiles.delete({ url: document.coverImage });
+    }
+
+    const promise = remove({ id: document._id });
 
     toast.promise(promise, {
       loading: 'Deleting note...',
@@ -53,7 +60,7 @@ export default function TrashBox() {
       error: 'Failed to delete note :('
     });
 
-    if (params.documentId === documentId) {
+    if (params.documentId === document._id) {
       router.push('/documents');
     }
   };
@@ -104,7 +111,7 @@ export default function TrashBox() {
                 <Undo className="h-4 w-4 text-muted-foreground" />
               </div>
 
-              <ConfirmModal onConfirm={() => handleRemove(document._id)}>
+              <ConfirmModal onConfirm={() => handleRemove(document)}>
                 <div
                   role="button"
                   className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"

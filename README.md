@@ -21,7 +21,7 @@
       <img src="https://user-images.githubusercontent.com/643171/203530354-f898ddfc-864f-460e-9780-4f3717256130.png" alt="nextjs" width="40" />
     </a>
     <a href="https://www.convex.dev/" target="_blank">
-      <img src="https://avatars.githubusercontent.com/u/81530787" alt="convex" width="40" />
+      <img src="https://dashboard.convex.dev/convex-logo-only.svg" alt="convex" width="40" />
     </a>
     <a href="https://edgestore.dev/" target="_blank">
       <img src="https://avatars.githubusercontent.com/u/121528638" alt="edge store" width="40" />

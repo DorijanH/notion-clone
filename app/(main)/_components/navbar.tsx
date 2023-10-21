@@ -70,7 +70,7 @@ export default function Navbar(props: NavbarProps) {
       </nav>
 
       {document.isArchived && (
-        <Banner documentId={document._id} />
+        <Banner document={document} />
       )}
     </>
   );
